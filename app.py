@@ -27,6 +27,7 @@ SPLIT_SESSIONS = {
                        "Lower", "Upper", "Lower"],
     "Push-Pull-Legs": ["Push", "Pull", "Legs",
                        "Push", "Pull", "Legs"],
+    "UL-PPL-Hybrid":  ["Upper", "Lower", "Push", "Pull", "Legs"],
     "Split-4":        ["Chest", "Back", "Shoulders",
                        "Arms",  "Legs", "Chest"],
     "Bro-Split":      ["Chest", "Back", "Shoulders",

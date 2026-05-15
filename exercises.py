@@ -107,6 +107,9 @@ EXERCISES = [
 # FILTER LOGIC
 # ════════════════════════════════════════════════════════════════════
 
+HEIGHT_BAND_MIN_CM = 155
+HEIGHT_BAND_MAX_CM = 200
+
 EXP_ORDER = {"beginner": 0, "intermediate": 1, "advanced": 2}
 
 SESSION_TAG_MAP = {
@@ -131,7 +134,7 @@ SESSION_TAG_MAP = {
     "Core":       "core",
 }
 
-def filter_exercises(session_type, experience, limitations=None):
+def filter_exercises(session_type, experience, limitations=None, height=None):
     if limitations is None:
         limitations = []
 
@@ -153,4 +156,10 @@ def filter_exercises(session_type, experience, limitations=None):
                 and ex["primary"] in ("triceps", "biceps"):
             continue
         result.append(ex)
+
+    if height is not None and not (HEIGHT_BAND_MIN_CM <= height <= HEIGHT_BAND_MAX_CM):
+        filtered = [ex for ex in result if ex["equipment"] not in ("machine", "hammer")]
+        if filtered:
+            return filtered
+
     return result
